@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn&display=swap');
+
+* {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+}
+
+:root {
+    font-family: 'Poppins', sans-serif;
+    --clr-primary: #90EE90;
+    --clr-light: whitesmoke;
+    --clr-dark: darkgray;
+    --clr-warning: red;
+    --shadow-primary: 0px 0px 5px 0px rgba(0, 0, 0, 0.281);
+} 
+
+/* Display Styling, Body, Header and Section */
+body {
+    display: grid;
+    grid-template-columns: 1fr minmax(120px, 300px) minmax(min-content, 500px) 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+      "header header header header"
+      "...... project todo ......."
+      "footer footer footer footer";
+    background-color: var(--clr-dark);
+}
+
+/* General Styling */
+.clickable {
+    cursor: pointer;
+}
+/* End General Styling */
+
+/* Header */
+
+header {
+    grid-area: header;
+    width: 100%;
+    height: 13vh;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    background-color: whitesmoke;
+    box-shadow: var(--shadow-primary);
+}
+
+header .logo {
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.links {
+    list-style: none;
+}
+
+header .links {
+    display: flex;
+    align-items: center;
+}
+
+header .links li {
+    font-size: clamp(14px, 1rem, 50vw);
+    padding: 1rem;
+    margin-left: 1rem;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+.links li.active::before {
+    content: '👉';
+    margin-right: 0.3rem;
+}
+
+header .links li:hover {
+    background-color: #00000050;
+}
+/* End Header */
+
+/* Project List */
+.project {
+    position: relative;
+    grid-area: project;
+    /* display: flex; */
+    flex-direction: column;
+    /* align-self: auto; */
+    height: 14rem;
+    margin: 15px;
+    background-color: var(--clr-light);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: var(--shadow-primary);
+    
+}
+
+.project-title {
+    padding: 8px;
+    background-color: var(--clr-primary);
+    text-align: center;
+}
+
+.project-list {
+    list-style-type: none;
+    padding-left: 0.5rem;
+    margin: 8px;    
+}
+
+.active-project {
+    font-weight: bold;
+}
+
+.add-form {
+    position: absolute;
+    bottom: 0px;
+    white-space: nowrap;
+    padding: 8px;
+}
+
+.btn-form {
+    width: inherit;
+}
+
+.add-form > .btn-form {
+    appearance: none;
+}
+
+/* End Project List */
+
+    
+/* Todo */
+.todo {
+    /* align-self: start; */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    grid-area: todo;
+    height: 20rem;
+    margin: 15px;
+    background-color: var(--clr-light);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: var(--shadow-primary);
+}
+
+.todo-header {
+    background-color: var(--clr-primary);
+    padding: 8px;
+}
+
+.todo-header > .todo-title {
+    text-align: center;
+}
+
+.todo-list {
+    margin: 8px;   
+    padding-left: 1rem;
+}
+
+/* End Todo */
+
