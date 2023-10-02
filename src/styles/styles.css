@@ -25,7 +25,7 @@ body {
     grid-template-rows: auto;
     grid-template-areas: 
       "header header header header"
-      "...... project todo ......."
+      "...... content content ......."
       "footer footer footer footer";
     background-color: var(--clr-dark);
 }
@@ -82,84 +82,21 @@ header .links li:hover {
 }
 /* End Header */
 
-/* Project List */
-.project {
-    position: relative;
-    grid-area: project;
-    /* display: flex; */
-    flex-direction: column;
-    /* align-self: auto; */
-    height: 14rem;
-    margin: 15px;
-    background-color: var(--clr-light);
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: var(--shadow-primary);
-    
-}
+/* Start Content */
 
-.project-title {
-    padding: 8px;
-    background-color: var(--clr-primary);
-    text-align: center;
-}
-
-.project-list {
-    list-style-type: none;
-    padding-left: 0.5rem;
-    margin: 8px;    
-}
-
-.active-project {
-    font-weight: bold;
-}
-
-.add-form {
-    position: absolute;
-    bottom: 0px;
-    white-space: nowrap;
-    padding: 8px;
-}
-
-.btn-form {
-    width: inherit;
-}
-
-.add-form > .btn-form {
-    appearance: none;
-}
-
-/* End Project List */
-
-    
-/* Todo */
-.todo {
-    /* align-self: start; */
+.content {
+    grid-area: content;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 20px 0 10px 0;
     display: flex;
     flex-direction: column;
-    position: relative;
-    grid-area: todo;
-    height: 20rem;
-    margin: 15px;
-    background-color: var(--clr-light);
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: var(--shadow-primary);
+
+    border-radius: 25px;
+    background-color: whitesmoke;
 }
 
-.todo-header {
-    background-color: var(--clr-primary);
-    padding: 8px;
+.content .more-info {
+    padding: 20px;
 }
-
-.todo-header > .todo-title {
-    text-align: center;
-}
-
-.todo-list {
-    margin: 8px;   
-    padding-left: 1rem;
-}
-
-/* End Todo */
-
