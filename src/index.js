@@ -1,74 +1,45 @@
-import './styles/styles.css'
+import './styles/styles.css';
 
-// Handles and Global Variables
-const addProjectForm = document.querySelector('#add-project')
-const addTaskForm = document.querySelector('#add-task')
-let projectListSelector = document.querySelector('#project-list')
-let taskListSelector = document.querySelector('#todo-list')
-let projectListArray = []
+import Weather from './weatherapi';
 
-function defaultTodo() {
-    const newProject0 = new Project('Studying')
-    const newProject1 = new Project('Grocery')
-    const newProject2 = new Project('Work')
+const key = '3941436912164c0b9d120339233009';
 
-    projectListArray.push(newProject0)
-    projectListArray.push(newProject1)
-    projectListArray.push(newProject2)
+    // const store = fetch(`http://api.weatherapi.com/v1/current.json?key=${key}&q=London`, {
+    //     mode: 'cors'
+    //   })
+    // .then(response => {
+    //     console.log("THEN HAPPENED");
+    //     // Check if the response status is OK before parsing JSON
+    //     if (!response.ok) {
+    //       throw new Error(`HTTP error! Status: ${response.status}`);
+    //     }
+    //     // Parse the response as JSON and return it
+    //     return response.json();
+    //   })
+    //   .then(data => {
+    //     // This block is executed when the JSON parsing is complete
+    //     console.log(data);
+    //   })
+    //   .catch(err => {
+    //     console.log("CATCH HAPPENED");
+    //     console.error(err);
+    //   });
+    // console.log(store)
 
-    const project = projectListArray[0]
-    project.showProjectTodo()
-}
-
-// Add project and display it to the page
-addProjectForm.addEventListener('submit', (e) => {
-    e.preventDefault()
-    const title = addProjectForm.querySelector('#new-project-input').value
-    const newProject = new Project(title)
-    newProject.display(projectListSelector)
-    projectListArray.push(newProject)
-    addProjectForm.reset()
-})
-
-addTaskForm.addEventListener('submit', (e) => {
-    e.preventDefault()
-
-    const title = addTaskForm.querySelector('#new-task-input').value
-    const newTask = new Task(title)
-    newTask.display(taskListSelector)
-    addTaskForm.reset()
-
-    const project = selectProjectClass(document.querySelector('#todo-title').textContent)
-    project.addTodo(newTask)
-})
-
-// Show project todo
-projectListSelector.addEventListener('click', (e) => {
-    if (e.target.tagName === 'LI') {
-        // Remove all active class in projectList
-        removeActiveFromList(projectListSelector)
-        // console.log(e.target.firstChild.data)
-        const project = selectProjectClass(e.target.firstChild.data)
-        addActiveClass(e.target)
-        project.showProjectTodo()
-    }
-})
-
-function removeActiveFromList(projectList) {
-    let listItems = projectList.querySelectorAll('li')
-    listItems.forEach(item => {
-        item.classList.remove('active-project')
-    })
-}
-
-function selectProjectClass(element) {
-    return projectListArray.find(e => {
-        return e.title == element
-    })
-}
-
-function addActiveClass(element) {
-    element.classList.add('active-project')
-}
-
-defaultTodo()
+    (async function getWeatherData(location) {
+        const response = await fetch(
+          `http://api.weatherapi.com/v1/forecast.json?key=1986480656ec490d950204923202611&q=Manila`,
+          {
+            mode: 'cors',
+          }
+        );
+        if (response.status === 400) {
+          throwErrorMsg();
+        } else {
+          const weatherData = await response.json();
+          console.log(weatherData)
+        }
+      })("Bulacan")
+    
+    
+      
