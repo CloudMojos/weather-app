@@ -97,6 +97,14 @@ header .links li:hover {
     background-color: whitesmoke;
 }
 
-.content .more-info {
-    padding: 20px;
+.content .day-forecast {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+}
+
+.content .day-forecast > * {
+    text-align: center; /* Center text content within each child */
+    /* Add any other styling you need */
 }
