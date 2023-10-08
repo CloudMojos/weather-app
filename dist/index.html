@@ -17,16 +17,21 @@
     </header>
 
     <div class="content">
-        <h1><span>🌤️</span>It's sunny in Philadelphia<span>🌤️</span></h1>
+        <h1 id="content-header"></h1>
         <div class="day-forecast">
-            <div id="morning-forecast" class="morning-forecast">
-                <h3>Morning</h3>
-            </div>
-            <div id="noon-forecast" class="noon-forecast">
-                <h3>Noon</h3>
-            </div>
-            <div id="evening-forecast" class="evening-forecast">
-                <h3>Evening</h3>
+            <div id="forecast-card" class="forecast-card">
+                <div id="rain-info" class="card-info">
+                    <p id="rain"></p>
+                    <p id="humidity"></p>
+                    <p id="wind"></p>
+                </div>
+                <div id="gif-container" class="card-img">
+                    <img id="gif" src="">
+                </div>
+                <div id="temp-info" class="card-info">
+                    <p id="temp"></p>
+                    <p id="feels"></p>
+                </div>
             </div>
         </div>
     </div>

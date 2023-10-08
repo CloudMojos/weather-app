@@ -21,7 +21,7 @@
 /* Display Styling, Body, Header and Section */
 body {
     display: grid;
-    grid-template-columns: 1fr minmax(120px, 300px) minmax(min-content, 500px) 1fr;
+    grid-template-columns: 1fr minmax(150px, 500px) minmax(150px, 500px) 1fr;
     grid-template-rows: auto;
     grid-template-areas: 
       "header header header header"
@@ -86,9 +86,10 @@ header .links li:hover {
 
 .content {
     grid-area: content;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     width: 100%;
+    height: 80vh;
     margin: 20px 0 10px 0;
     display: flex;
     flex-direction: column;
@@ -98,13 +99,39 @@ header .links li:hover {
 }
 
 .content .day-forecast {
-    display: grid;
+    display: flex;
     width: 100%;
-    grid-template-columns: repeat(3, 1fr);
+    height: 100%;
     justify-content: center;
 }
 
 .content .day-forecast > * {
     text-align: center; /* Center text content within each child */
     /* Add any other styling you need */
+}
+
+.forecast-card {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    height: 95%;
+    width: 95%;
+    margin-top: 10px;
+    background-color: #AEC6CF;
+    border-radius: 20px;
+}
+
+.card-info {
+    display: flex;
+    height: 80%;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#gif {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
